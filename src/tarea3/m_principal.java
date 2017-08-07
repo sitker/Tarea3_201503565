@@ -17,12 +17,14 @@ public class m_principal {
     Scanner lector;
     String usuarios[];
     boolean bandera;
+    boolean compUsuarios;
     
     public m_principal(){
         opcion = 0;
         lector = new Scanner(System.in);  //se inicia aqui en el constructor porque es global
         usuarios = new String[5];
         bandera = false;
+        compUsuarios = false;
         
     }
     
@@ -83,7 +85,7 @@ public class m_principal {
     private void palabras_palindromas() {
         String palabra;
         System.out.println("Ingrese una palabra: ");
-        palabra = this.lector.next();
+        palabra = this.lector.next().toUpperCase();
         if(palabra.equals(usuarios[0])){
             
         }
@@ -93,7 +95,7 @@ public class m_principal {
         int actual;
         for(actual = 0; actual < 5; actual++ ){
             System.out.println("Ingrese el nombre del usuario " + (actual+1) + ":");
-            usuarios[actual] = this.lector.next();
+            usuarios[actual] = this.lector.next().toUpperCase();
         }
         System.out.println("Usuarios creados exitosamente.");
     }
@@ -108,7 +110,22 @@ public class m_principal {
     }
 
     private void persUsuario() {
-        
+        String nombreUs;
+        int actual;
+        System.out.println("Ingrese un usuario");
+        nombreUs = this.lector.next().toUpperCase();
+        for(actual = 0; actual < 5; actual++){
+          if(!compUsuarios){
+                if(nombreUs.equals(usuarios[actual])){
+                    System.out.println("Usuario \n" + usuarios[actual]);
+                    compUsuarios = true;
+                }
+          }
+        }
+        if(!compUsuarios){
+            System.out.println("ERROR!! No existe ningún usuario con esa coincidencia");
+        }
+        compUsuarios = false;
     }
     
 }
