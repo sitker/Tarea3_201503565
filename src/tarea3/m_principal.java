@@ -30,12 +30,14 @@ public class m_principal {
     
     public void menuPrincipal(){
         do{
+        System.out.println("***********************************");
         System.out.println("Tarea 3");
         System.out.println("201503565");
         System.out.println("Seleccione una opcion: ");
         System.out.println("1. Usuarios");
         System.out.println("2. Palabras Palíndromas");
         System.out.println("3. Salir");
+        System.out.println("***********************************");
  
             opcion = lector.nextInt();
             switch(opcion){
@@ -53,13 +55,14 @@ public class m_principal {
 
     private void usuarios() {
        do{
-           System.out.println("\n");
+           System.out.println("***********************************");
            System.out.println("Menú de Usuarios");
            System.out.println("1. Ingresar Usuarios");
            System.out.println("2. Mostrar todos los Usuarios");
            System.out.println("3. Mostrar un Usuario Personalizado");
            System.out.println("4. Menú Principal");
            System.out.println("5. Salir");
+           System.out.println("***********************************");
            
            opcion = lector.nextInt();
            switch(opcion){
@@ -103,18 +106,24 @@ public class m_principal {
             usuarios[actual] = this.lector.next().toUpperCase();
         }
         System.out.println("Usuarios creados exitosamente.");
+        bandera = true;
     }
 
     private void muestraUsuarios() {
+      if(bandera){
         System.out.println("Los usuarios actuales son: ");
         int actual;
         for(actual = 0; actual < 5; actual++){
             System.out.println("Usuario " + (actual+1) + " :");
             System.out.println(usuarios[actual] + "\n");
         }
+      }else{
+          System.out.println("Aún no se han creado usuarios.");
+      }
     }
 
     private void persUsuario() {
+      if(bandera){
         String nombreUs;
         int actual;
         System.out.println("Ingrese un usuario");
@@ -131,6 +140,9 @@ public class m_principal {
             System.out.println("ERROR!! No existe ningún usuario con esa coincidencia");
         }
         compUsuarios = false;
+      }else{
+          System.out.println("Aún no se han creado usuarios.");
+      }
     }
     
 }
