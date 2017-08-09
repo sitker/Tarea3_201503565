@@ -83,11 +83,16 @@ public class m_principal {
     }
 
     private void palabras_palindromas() {
+        String lect = lector.nextLine(); //para limpiar el lector de nextInt anterior porque imprime un \n
         String palabra;
         System.out.println("Ingrese una palabra: ");
-        palabra = this.lector.next().toUpperCase();
-        if(palabra.equals(usuarios[0])){
-            
+        palabra = this.lector.nextLine().toLowerCase().replace(" ", "");
+        StringBuffer palabraRev = new StringBuffer(palabra);
+        palabraRev = palabraRev.reverse();
+        if(palabra.equals(palabraRev.toString())){
+            System.out.println("¡SI ES PALINDROMA!!!!!");
+        }else{
+            System.out.println("¡NO ES PALINDROMA!!!!!");
         }
     }
 
